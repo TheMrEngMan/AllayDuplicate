@@ -7,5 +7,6 @@ Limitations:
 
 If you know how to solve any of these issues, a PR is more than welcome :)
 
-
+Note, that for the duplication cooldown, Bukkit PersistentDataContainer is used, so allays duplicated with this plugin will have an extra NBT tag (will not interfere with anything).
+This is used to save the cooldown time across server restarts.
 
