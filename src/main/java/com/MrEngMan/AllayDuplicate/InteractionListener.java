@@ -50,13 +50,13 @@ public class InteractionListener implements Listener {
                     for(int y = allayLocation.getBlockY() - Main.plugin.jukeboxAllayRange; y < allayLocation.getBlockY() + Main.plugin.jukeboxAllayRange; y++) {
                         for(int z = allayLocation.getBlockZ() - Main.plugin.jukeboxAllayRange; z < allayLocation.getBlockZ() + Main.plugin.jukeboxAllayRange; z++) {
 
-                            // If allay is out of range and can't hear the jukebox
-                            double distance = allayLocation.distance(new Location(world, x, y, z));
-                            if(distance > Main.plugin.jukeboxAllayRange) continue;
-
                             if(world.getBlockAt(x, y, z).getType() == Material.JUKEBOX) {
                                 Jukebox jukebox = ((Jukebox)world.getBlockAt(x, y, z).getState());
                                 if(jukebox.isPlaying()) {
+
+                                    // If allay is out of range and can't hear the jukebox
+                                    double distance = allayLocation.distance(new Location(world, x, y, z));
+                                    if(distance > Main.plugin.jukeboxAllayRange) continue;
 
                                     // Duplicate allay and create heart particles
                                     Entity duplicatedAllay = world.spawnEntity(allayLocation, EntityType.ALLAY);
